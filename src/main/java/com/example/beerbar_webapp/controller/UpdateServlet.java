@@ -8,35 +8,33 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.Objects;
 
-@WebServlet(name = "RegistrationServlet", value = "/registration")
-public class RegistrationServlet extends HttpServlet {
+@WebServlet(name = "UpdateServlet", value = "/update")
+public class UpdateServlet extends HttpServlet {
     JDBConnection connection = new JDBConnection();
-    UserDAOImpl resultDAO = new UserDAOImpl(connection);
+    UserDAOImpl userDAO = new UserDAOImpl(connection);
+
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
-        String login = request.getParameter("login");
         String email = request.getParameter("email");
+        String phone_number = request.getParameter("phone_number");
+        String gender = request.getParameter("gender");
         String address = request.getParameter("address");
         int age = Integer.parseInt(request.getParameter("age"));
-        String password = request.getParameter("password");
-        String passcofirm = request.getParameter("password_confirm");
-        String gender = request.getParameter("gender");
-        String number = request.getParameter("phone_number");
+        String login = request.getParameter("login");
 
-        User user = new User(name, login, password, age, gender, email, number, address, surname);
+        User user = new User(name,age,gender,email,phone_number,address,surname,login);
 
-        if (!Objects.equals(passcofirm, password)) {
-            response.sendRedirect(request.getContextPath() + "/errors/wronPass.jsp");
-        }
-        if (resultDAO.create(user)) {
-            try {
+        if (userDAO.editUser(user)){
+            try{
                 HttpSession session = request.getSession();
                 session.setAttribute("name", user.getName());
                 session.setAttribute("surname", user.getSurname());
@@ -50,9 +48,8 @@ public class RegistrationServlet extends HttpServlet {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        } else {
+        }else {
             response.sendRedirect(request.getContextPath() + "/errors/404error.jsp");
-
         }
     }
 }

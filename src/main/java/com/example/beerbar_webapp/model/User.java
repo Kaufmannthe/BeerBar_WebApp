@@ -31,4 +31,15 @@ public class User {
         this.address = address;
         this.surname = surname;
     }
+
+    public User(String name, int age, String gender, String email, String phoneNumber, String address, String surname, String login) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.surname = surname;
+        this.login = login;
+    }
 }

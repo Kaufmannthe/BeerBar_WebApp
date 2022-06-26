@@ -12,24 +12,13 @@ public class JDBConnection {
     private Connection connection;
 
     public Connection getConnection() throws ClassNotFoundException {
-        if (connection == null) {
-            try {
-                Class.forName(driver);
-                connection = DriverManager.getConnection(JDBC_URL, JDBC_NAME, JDBC_PASSWORD);
-                return connection;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                Class.forName(driver);
-                connection = DriverManager.getConnection(JDBC_URL, JDBC_NAME, JDBC_PASSWORD);
-                return connection;
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
+        try {
+            Class.forName(driver);
+            connection = DriverManager.getConnection(JDBC_URL, JDBC_NAME, JDBC_PASSWORD);
+            return connection;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return null;
+        return connection;
     }
 }

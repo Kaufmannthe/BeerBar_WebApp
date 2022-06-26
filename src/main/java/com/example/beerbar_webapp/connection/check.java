@@ -7,7 +7,8 @@ public class check {
     public static void main(String[] args) {
         JDBConnection jdbConnection = new JDBConnection();
         UserDAOImpl userDAO = new UserDAOImpl(jdbConnection);
-        System.out.println(userDAO.create(new User("Pavel","Jzuck","1111",22,"Male","Jzuck@mail.ru","+3755122211","Belarus, Minsk","Pryahin")));
+        User user = new User("Artyom",23,"Male","Kaufmannthe@gmail.com","+375445121346","Belarus,Minsk","Bohan","Kaufmannthe");
+        System.out.println(userDAO.editUser(user));
     }
 }
 

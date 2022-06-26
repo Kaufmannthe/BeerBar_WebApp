@@ -12,4 +12,6 @@ public interface UserDAO extends BaseDAO <User>{
     boolean findUser (String login, String password);
 
     User getUser(String login, String password);
+
+    boolean editUser(User user);
 }

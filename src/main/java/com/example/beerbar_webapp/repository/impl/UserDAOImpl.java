@@ -12,7 +12,10 @@ import java.util.Optional;
 
 public class UserDAOImpl implements UserDAO {
     private static final String CREATE_USER = "INSERT INTO users (name,login,password,age,email,phone_number,gender,surname,address) VALUES (?,?,?,?,?,?,?,?,?)";
-    private static final String USER_UPDATE = "UPDATE users SET login = ?, password = ?, age = ? WHERE id = ?";
+    private static final String USER_PASSWORD_UPDATE = "UPDATE users SET password = ? WHERE login = ?";
+    private static final String USER_UPDATE = "UPDATE users SET name = ?, surname = ?, email = ? ," +
+            " phone_number = ?, gender = ?, address = ?, age = ? WHERE login = ?";
+
     private static final String FIND_BY_ID = "SELECT * FROM users WHERE id = ? ";
     private static final String FIND_ALL_USERS = "SELECT * FROM users";
     private static final String FIND_BY_LOGIN = "SELECT * FROM users WHERE login = ?";
@@ -94,11 +97,9 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean update(User entity) {
         try (Connection connection = connector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(USER_UPDATE)) {
-            preparedStatement.setString(1, entity.getLogin());
-            preparedStatement.setString(2, entity.getPassword());
-            preparedStatement.setInt(3, entity.getAge());
-            preparedStatement.setInt(4, entity.getId());
+             PreparedStatement preparedStatement = connection.prepareStatement(USER_PASSWORD_UPDATE)) {
+            preparedStatement.setString(1, entity.getPassword());
+            preparedStatement.setString(2, entity.getLogin());
 
             return preparedStatement.executeUpdate() == 1;
         } catch (SQLException | ClassNotFoundException e) {
@@ -171,6 +172,7 @@ public class UserDAOImpl implements UserDAO {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 user.setId(resultSet.getInt("id"));
+                user.setSurname(resultSet.getString("surname"));
                 user.setName(resultSet.getString("name"));
                 user.setLogin(resultSet.getString("login"));
                 user.setAge(resultSet.getInt("age"));
@@ -184,5 +186,24 @@ public class UserDAOImpl implements UserDAO {
             throw new RuntimeException(e);
         }
         return user;
+    }
+
+    @Override
+    public boolean editUser(User user) {
+        try(Connection connection = connector.getConnection();
+        PreparedStatement statement = connection.prepareStatement(USER_UPDATE)) {
+        statement.setString(1,user.getName());
+        statement.setString(2,user.getSurname());
+        statement.setString(3,user.getEmail());
+        statement.setString(4,user.getPhoneNumber());
+        statement.setString(5,user.getGender());
+        statement.setString(6, user.getAddress());
+        statement.setInt(7,user.getAge());
+        statement.setString(8, user.getLogin());
+
+        return statement.executeUpdate() == 1;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

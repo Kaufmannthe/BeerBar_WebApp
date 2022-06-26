@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Your Profile</title>
@@ -22,7 +22,7 @@
             padding: 15px;
         }
 
-        .main-body nav ol a:hover{
+        .main-body nav ol a:hover {
             text-decoration: none;
         }
 
@@ -96,26 +96,27 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                           <c:choose>
-                               <c:when test="${gender == 'Male'}">
-                            <img src="avatars/manAvatar.png" alt="Admin"
-                                 class="rounded-circle" width="256">
-                               </c:when>
-                               <c:when test="${gender == 'Female'}">
-                                   <img src="avatars/femaleAvatar.png" alt="Admin"
-                                        class="rounded-circle" width="256">
-                               </c:when>
-                               <c:otherwise>
-                                   <img src="avatars/otherAvatar.png" alt="Admin"
-                                        class="rounded-circle" width="256">
-                               </c:otherwise>
-                           </c:choose>
+                            <c:choose>
+                                <c:when test="${gender == 'Male'}">
+                                    <img src="avatars/manAvatar.png" alt="Admin"
+                                         class="rounded-circle" width="256">
+                                </c:when>
+                                <c:when test="${gender == 'Female'}">
+                                    <img src="avatars/femaleAvatar.png" alt="Admin"
+                                         class="rounded-circle" width="256">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="avatars/otherAvatar.png" alt="Admin"
+                                         class="rounded-circle" width="256">
+                                </c:otherwise>
+                            </c:choose>
                             <div class="mt-3">
                                 <h4>${name}</h4>
                                 <p class="text-secondary mb-1">Age: ${age}</p>
                                 <p class="text-muted font-size-sm">${address}</p>
                                 <%--<button style="background: #e64b3b;border-color: #e64b3b" class="btn btn-primary">Follow</button>
                                 <button class="btn btn-outline-primary">Message</button>--%>
+                                <button class="btn btn-outline-primary" href="/errors/404error.jsp">Friends</button>
                             </div>
 
                         </div>
@@ -238,7 +239,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <a class="btn btn-info " target="__blank"
-                                   href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                                   href="profileEdit.jsp">Edit</a>
                                 <a class="btn btn-info " target="__blank"
                                    href="${pageContext.request.contextPath}/errors/404error.jsp">Change password</a>
                             </div>
@@ -283,7 +284,8 @@
                     <div class="col-sm-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3" ><i class="material-icons text-info mr-2"></i>Social Links</h6>
+                                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Social
+                                    Links</h6>
                                 <small>Alcohol Resistance</small>
                                 <div class="progress mb-3" style="height: 5px">
                                     <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
