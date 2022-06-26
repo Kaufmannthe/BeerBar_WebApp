@@ -7,6 +7,7 @@ public class check {
     public static void main(String[] args) {
         JDBConnection jdbConnection = new JDBConnection();
         UserDAOImpl userDAO = new UserDAOImpl(jdbConnection);
-        System.out.println(userDAO.create(new User("Darya","Darya123","12345",20,"Female","Darya@mail.ru","+3755122211","Belarus, Minsk","Burdyko")));
+        System.out.println(userDAO.create(new User("Pavel","Jzuck","1111",22,"Male","Jzuck@mail.ru","+3755122211","Belarus, Minsk","Pryahin")));
     }
 }
+

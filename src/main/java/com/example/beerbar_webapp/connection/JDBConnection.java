@@ -20,7 +20,16 @@ public class JDBConnection {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        } else {
+            try {
+                Class.forName(driver);
+                connection = DriverManager.getConnection(JDBC_URL, JDBC_NAME, JDBC_PASSWORD);
+                return connection;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
         }
-        return connection;
+        return null;
     }
 }

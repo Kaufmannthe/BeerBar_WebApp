@@ -22,6 +22,10 @@
             padding: 15px;
         }
 
+        .main-body nav ol a:hover{
+            text-decoration: none;
+        }
+
         .card {
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
         }
@@ -78,12 +82,10 @@
 <body>
 <div class="container">
     <div class="main-body">
-
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+                <li class="breadcrumb-item"><a href="landingPage.jsp">Craft Beer Club</a></li>
                 <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
         </nav>
@@ -112,8 +114,8 @@
                                 <h4>${name}</h4>
                                 <p class="text-secondary mb-1">Age: ${age}</p>
                                 <p class="text-muted font-size-sm">${address}</p>
-                                <button style="background: #e64b3b;border-color: #e64b3b" class="btn btn-primary">Follow</button>
-                                <button class="btn btn-outline-primary">Message</button>
+                                <%--<button style="background: #e64b3b;border-color: #e64b3b" class="btn btn-primary">Follow</button>
+                                <button class="btn btn-outline-primary">Message</button>--%>
                             </div>
 
                         </div>
@@ -252,7 +254,7 @@
                                     Status</h6>
                                 <small>Beer Experience</small>
                                 <div class="progress mb-3" style="height: 5px">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 90%"
                                          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <small>Wine Experience</small>

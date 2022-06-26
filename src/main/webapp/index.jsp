@@ -177,10 +177,11 @@
                         <div class="social-login">
                             <p>- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - - </p>
                             <ul>
-                                <li><a href=""><i class="fa fa-facebook"></i> Facebook</a></li>
+                                <li><a href="landingPage.jsp"><i class="fa fa-facebook"></i> Continue/Facebook</a></li>
                                 <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
                                 <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
                             </ul>
+
                         </div>
                         <br>
                         <br>

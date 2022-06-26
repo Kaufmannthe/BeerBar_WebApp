@@ -11,7 +11,7 @@ import java.util.Optional;
 
 
 public class UserDAOImpl implements UserDAO {
-    private static final String CREATE_USER = "INSERT INTO users (name,login,password,age,email,phone_number,gender,surname) VALUES (?,?,?,?,?,?,?,?)";
+    private static final String CREATE_USER = "INSERT INTO users (name,login,password,age,email,phone_number,gender,surname,address) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String USER_UPDATE = "UPDATE users SET login = ?, password = ?, age = ? WHERE id = ?";
     private static final String FIND_BY_ID = "SELECT * FROM users WHERE id = ? ";
     private static final String FIND_ALL_USERS = "SELECT * FROM users";
@@ -77,10 +77,12 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(2, entity.getLogin());
             statement.setString(3, entity.getPassword());
             statement.setInt(4, entity.getAge());
-            statement.setString(5, entity.getGender());
-            statement.setString(6, entity.getEmail());
-            statement.setString(7, entity.getPhoneNumber());
+            statement.setString(5, entity.getEmail());
+            statement.setString(6, entity.getPhoneNumber());
+            statement.setString(7, entity.getGender());
             statement.setString(8,entity.getSurname());
+            statement.setString(9,entity.getAddress());
+
 
             return statement.executeUpdate() == 1;
         } catch (SQLException | ClassNotFoundException e) {

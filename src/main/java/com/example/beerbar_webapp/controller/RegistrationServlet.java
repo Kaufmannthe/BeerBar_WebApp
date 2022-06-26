@@ -54,6 +54,7 @@ public class RegistrationServlet extends HttpServlet {
             }
         } else {
             response.sendRedirect(request.getContextPath() + "/errors/404error.jsp");
+
         }
     }
 }

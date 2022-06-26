@@ -24,11 +24,12 @@ public class HelloServlet extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
-
         try {
             boolean result = resultDAO.findUser(login, password);
             User user = userDAO.getUser(login, password);
             if (result) {
+
+
                 HttpSession session = request.getSession();
                 session.setAttribute("name", user.getName());
                 session.setAttribute("surname",user.getSurname());
