@@ -47,6 +47,6 @@
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     Unable to save changes. Check the correctness of the entered data.
 </div>
-<%@include file="profileEdit.jsp"%>
+<%@include file="../profileEdit.jsp"%>
 </body>
 </html>

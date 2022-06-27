@@ -1,11 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Kaufmannthe
-  Date: 26/06/2022
-  Time: 21:28
+  Date: 27/06/2022
+  Time: 21:19
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -19,7 +19,7 @@
         /* The alert message box */
         .alert {
             padding: 20px;
-            background-color: #90ff65; /* Red */
+            background-color: rgba(188,38,0,0.99); /* Red */
             color: white;
             margin-bottom: 15px;
             text-align: center;
@@ -46,9 +46,8 @@
 <body>
 <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    Data changed successfully
+    Passwords do not match or less than 7 characters are specified.
 </div>
-<%@include file="profile.jsp"%>
+<%@include file="../passwordUpdate_form.jsp"%>
 </body>
 </html>
-

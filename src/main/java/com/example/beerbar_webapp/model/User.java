@@ -42,4 +42,9 @@ public class User {
         this.surname = surname;
         this.login = login;
     }
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
 }

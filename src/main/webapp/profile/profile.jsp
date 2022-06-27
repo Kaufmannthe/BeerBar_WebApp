@@ -85,7 +85,7 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../landingPage.jsp">Craft Beer Club</a></li>
+                <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/landingPage.jsp">Craft Beer Club</a></li>
                 <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
         </nav>
@@ -98,15 +98,15 @@
                         <div class="d-flex flex-column align-items-center text-center">
                             <c:choose>
                                 <c:when test="${gender == 'Male'}">
-                                    <img src="../avatars/manAvatar.png" alt="Admin"
+                                    <img src="${pageContext.request.contextPath}/avatars/manAvatar.png" alt="Admin"
                                          class="rounded-circle" width="256">
                                 </c:when>
                                 <c:when test="${gender == 'Female'}">
-                                    <img src="../avatars/femaleAvatar.png" alt="Admin"
+                                    <img src="${pageContext.request.contextPath}/avatars/femaleAvatar.png" alt="Admin"
                                          class="rounded-circle" width="256">
                                 </c:when>
                                 <c:otherwise>
-                                    <img src="../avatars/otherAvatar.png" alt="Admin"
+                                    <img src="${pageContext.request.contextPath}/avatars/otherAvatar.png" alt="Admin"
                                          class="rounded-circle" width="256">
                                 </c:otherwise>
                             </c:choose>
@@ -241,12 +241,11 @@
                                 <a class="btn btn-info " target="__blank"
                                    href="profileEdit.jsp">Edit</a>
                                 <a class="btn btn-info " target="__blank"
-                                   href="${pageContext.request.contextPath}/errors/404error.jsp">Change password</a>
+                                   href="passwordUpdate_form.jsp">Change password</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="row gutters-sm">
                     <div class="col-sm-6 mb-3">
                         <div class="card h-100">
