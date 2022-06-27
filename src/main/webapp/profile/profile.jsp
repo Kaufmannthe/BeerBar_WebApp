@@ -85,7 +85,7 @@
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="landingPage.jsp">Craft Beer Club</a></li>
+                <li class="breadcrumb-item"><a href="../landingPage.jsp">Craft Beer Club</a></li>
                 <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol>
         </nav>
@@ -98,15 +98,15 @@
                         <div class="d-flex flex-column align-items-center text-center">
                             <c:choose>
                                 <c:when test="${gender == 'Male'}">
-                                    <img src="avatars/manAvatar.png" alt="Admin"
+                                    <img src="../avatars/manAvatar.png" alt="Admin"
                                          class="rounded-circle" width="256">
                                 </c:when>
                                 <c:when test="${gender == 'Female'}">
-                                    <img src="avatars/femaleAvatar.png" alt="Admin"
+                                    <img src="../avatars/femaleAvatar.png" alt="Admin"
                                          class="rounded-circle" width="256">
                                 </c:when>
                                 <c:otherwise>
-                                    <img src="avatars/otherAvatar.png" alt="Admin"
+                                    <img src="../avatars/otherAvatar.png" alt="Admin"
                                          class="rounded-circle" width="256">
                                 </c:otherwise>
                             </c:choose>

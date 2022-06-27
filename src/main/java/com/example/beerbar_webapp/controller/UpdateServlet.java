@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "UpdateServlet", value = "/update")
 public class UpdateServlet extends HttpServlet {
@@ -31,6 +32,8 @@ public class UpdateServlet extends HttpServlet {
         int age = Integer.parseInt(request.getParameter("age"));
         String login = request.getParameter("login");
 
+        PrintWriter printWriter = response.getWriter();
+
         User user = new User(name,age,gender,email,phone_number,address,surname,login);
 
         if (userDAO.editUser(user)){
@@ -44,12 +47,12 @@ public class UpdateServlet extends HttpServlet {
                 session.setAttribute("gender", user.getGender());
                 session.setAttribute("phone_number", user.getPhoneNumber());
                 session.setAttribute("address", user.getAddress());
-                response.sendRedirect(request.getContextPath() + "/profile.jsp");
+                response.sendRedirect(request.getContextPath() + "/profile/success.jsp");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }else {
-            response.sendRedirect(request.getContextPath() + "/errors/404error.jsp");
+            response.sendRedirect(request.getContextPath() + "/profile/error.jsp");
         }
     }
 }

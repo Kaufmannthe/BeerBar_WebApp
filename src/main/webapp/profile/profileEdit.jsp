@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Kaufmannthe
@@ -44,6 +45,13 @@
 <body>
 <div class="container">
     <div class="main-body">
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/landingPage.jsp">Craft Beer Club</a></li>
+                <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/profile/profile.jsp">User Profile</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Profile Edit</li>
+            </ol>
+        </nav>
         <div class="row">
             <div class="col-lg-4">
                 <div class="card">
@@ -201,7 +209,7 @@
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="submit" class="btn btn-primary px-4"
+                                    <input name="submit" type="submit" class="btn btn-primary px-4"
                                            value="Save Changes">
                                 </div>
                             </div>

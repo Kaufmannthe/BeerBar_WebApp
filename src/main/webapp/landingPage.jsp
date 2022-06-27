@@ -47,7 +47,7 @@
                     </li>
                 </c:if>
                 <c:if test="${login != null}">
-                    <li class="nav-item"><a class="nav-link" href="profile.jsp">Profile</a>
+                    <li class="nav-item"><a class="nav-link" href="profile/profile.jsp">Profile</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/SessionInvalidate">Logout</a>
                     </li>

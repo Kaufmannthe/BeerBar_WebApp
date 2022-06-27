@@ -40,7 +40,7 @@ public class HelloServlet extends HttpServlet {
                 session.setAttribute("phone_number", user.getPhoneNumber());
                 session.setAttribute("address", user.getAddress());
 
-                response.sendRedirect(request.getContextPath() + "/profile.jsp");
+                response.sendRedirect(request.getContextPath() + "/profile/profile.jsp");
             } else {
                 response.sendRedirect(request.getContextPath() + "/errors/404error.jsp");
             }
