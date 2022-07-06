@@ -6,7 +6,10 @@ public enum PageMappingConst {
     PAGE_LOGIN ("page.login"),
     PAGE_PROFILE("page.profile"),
     PAGE_SUCCESS_UPDATE("page.successUpdate"),
-    PAGE_LANDING("page.landing");
+    PAGE_LANDING("page.landing"),
+    PROFILE_EDIT("page.profileEdit"),
+    PASSWORD_UPDATE("page.password_update");
+
 
     private String key;
 

@@ -161,7 +161,7 @@
                 <div class="tab-content">
                     <div id="sectionA" class="tab-pane fade in active">
                         <div class="innter-form">
-                            <form action="controller" class="sa-innate-form"
+                            <form action="${pageContext.request.contextPath}/controller" class="sa-innate-form"
                                   method=post>
                                 <input type="hidden" name="command" value="login">
                                 <label>Email Address/Login</label>

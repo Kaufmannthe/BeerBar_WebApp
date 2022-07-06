@@ -170,15 +170,15 @@
                             <label>Surname</label>
                             <input type="text" name="surname" id="surname">
                             <label>Login</label>
-                            <input type="text" name="login" id="login">
+                            <input type="text" name="login" id="login" required>
                             <label>Email Address</label>
-                            <input type="text" name="email" id="email">
+                            <input type="text" name="email" id="email" required>
                             <label>Address</label>
                             <input type="text" name="address" id="address">
                             <label>Age</label>
                             <input type="text" name="age" id="age">
                             <label>Mobile</label>
-                            <input type="text" name="phone_number" id="phone_number">
+                            <input type="text" name="phone_number" id="phone_number" required>
                             <p>Gender</p>
                             <input class="form-check-input" type="radio" name="gender"
                                    id="female_gender"
@@ -198,9 +198,9 @@
                                 <label class="form-check-label" for="other_gender">Other</label>
                                 <br>
                                 <label>Password</label>
-                                <input type="text" name="password">
+                                <input type="text" name="password" required>
                                 <label>Password Confirm</label>
-                                <input type="text" name="password_confirm">
+                                <input type="text" name="password_confirm" required>
                             </div>
 
                             <button type="submit">Join Us</button>

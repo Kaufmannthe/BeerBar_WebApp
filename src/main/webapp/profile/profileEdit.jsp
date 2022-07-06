@@ -78,7 +78,7 @@
                                     </svg>
                                     Website
                                 </h6>
-                                <span class="text-secondary">https://bootdey.com</span>
+                                <span class="text-secondary" href="">${login}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">
@@ -89,7 +89,7 @@
                                     </svg>
                                     Github
                                 </h6>
-                                <span class="text-secondary">bootdey</span>
+                                <span class="text-secondary" href="">${login}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">
@@ -101,7 +101,7 @@
                                     </svg>
                                     Twitter
                                 </h6>
-                                <span class="text-secondary">@bootdey</span>
+                                <span class="text-secondary"href="">@${login}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">
@@ -115,7 +115,7 @@
                                     </svg>
                                     Instagram
                                 </h6>
-                                <span class="text-secondary">bootdey</span>
+                                <span class="text-secondary" href="">@${login}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">
@@ -127,7 +127,7 @@
                                     </svg>
                                     Facebook
                                 </h6>
-                                <span class="text-secondary">bootdey</span>
+                                <span class="text-secondary" href="">@${login}</span>
                             </li>
                         </ul>
                     </div>
@@ -140,11 +140,10 @@
                         <div class="card-body">
                             <div class="row mb-3">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Login</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input readonly type="text" class="form-control" value="${login}" name="login"
-                                           id="login">
+                                    <input  readonly type="hidden" class="form-control" value="${login}" name="login"
+                                           id="login" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -170,7 +169,7 @@
                                 </div>
 
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="${email}" name="email" id="email">
+                                    <input type="text" class="form-control" value="${email}" name="email" id="email" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -179,7 +178,7 @@
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     <input type="text" class="form-control" value="${phone_number}" name="phone_number"
-                                           id="phone_number">
+                                           id="phone_number" required>
                                 </div>
                             </div>
                             <div class="row mb-3">

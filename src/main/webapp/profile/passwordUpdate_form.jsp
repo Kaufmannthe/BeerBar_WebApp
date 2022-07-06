@@ -135,8 +135,8 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <form action= controller method="post">
-                    <input type="hidden" name="command" value="update_profile">
+                <form action= "${pageContext.request.contextPath}/controller" method="post">
+                    <input type="hidden" name="command" value="password_update">
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-3">
@@ -153,7 +153,7 @@
                                     <h6 class="mb-0">New password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" name="password">
+                                    <input type="text" class="form-control" value="" name="password" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -161,7 +161,7 @@
                                     <h6 class="mb-0">Confirm password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="" name="password-conf">
+                                    <input type="text" class="form-control" value="" name="password-conf" required>
                                 </div>
                             </div>
                             <div class="row">

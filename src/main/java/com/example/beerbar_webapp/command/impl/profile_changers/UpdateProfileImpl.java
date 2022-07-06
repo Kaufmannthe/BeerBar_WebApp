@@ -8,12 +8,14 @@ import com.example.beerbar_webapp.model.User;
 import com.example.beerbar_webapp.repository.impl.UserDAOImpl;
 import com.example.beerbar_webapp.util.PageManager;
 import com.example.beerbar_webapp.util.PageMappingConst;
+import com.example.beerbar_webapp.util.PageMappingConstErrors;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 public class UpdateProfileImpl implements Command {
     JDBConnection connection = new JDBConnection();
@@ -34,7 +36,7 @@ public class UpdateProfileImpl implements Command {
 
         User user = new User(name,age,gender,email,phone_number,address,surname,login);
 
-        if (userDAO.editUser(user)){
+        if (userDAO.editUser(user) && !Objects.equals(email, "")){
                 HttpSession session = request.getSession();
                 session.setAttribute("name", user.getName());
                 session.setAttribute("surname", user.getSurname());
@@ -49,7 +51,9 @@ public class UpdateProfileImpl implements Command {
                 commandResult.setPage(page);
                 commandResult.setType(NavigationType.REDIRECT);
         }else {
-            /*response.sendRedirect(request.getContextPath() + "/profile/error.jsp");*/
+            page = request.getContextPath() + PageManager.getPageURL(PageMappingConstErrors.EDIT_ERROR.getKey());
+            commandResult.setPage(page);
+            commandResult.setType(NavigationType.REDIRECT);
         }
         return commandResult;
     }

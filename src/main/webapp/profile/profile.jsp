@@ -135,7 +135,7 @@
                                 </svg>
                                 Website
                             </h6>
-                            <span class="text-secondary">https://bootdey.com</span>
+                            <span class="text-secondary" href="">${login}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                             <h6 class="mb-0">
@@ -146,7 +146,7 @@
                                 </svg>
                                 Github
                             </h6>
-                            <span class="text-secondary">bootdey</span>
+                            <span class="text-secondary" href="">${login}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                             <h6 class="mb-0">
@@ -157,7 +157,7 @@
                                 </svg>
                                 Twitter
                             </h6>
-                            <span class="text-secondary">@bootdey</span>
+                            <span class="text-secondary" href="">@${login}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                             <h6 class="mb-0">
@@ -171,7 +171,7 @@
                                 </svg>
                                 Instagram
                             </h6>
-                            <span class="text-secondary">bootdey</span>
+                            <span class="text-secondary" href="">@${login}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                             <h6 class="mb-0">
@@ -183,7 +183,7 @@
                                 </svg>
                                 Facebook
                             </h6>
-                            <span class="text-secondary">bootdey</span>
+                            <span class="text-secondary" href="">@${login}</span>
                         </li>
                     </ul>
                 </div>
@@ -239,9 +239,9 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <a class="btn btn-info " target="__blank"
-                                   href="profileEdit.jsp">Edit</a>
+                                   href="${pageContext.request.contextPath}/controller?command=profile_edit">Edit</a>
                                 <a class="btn btn-info " target="__blank"
-                                   href="passwordUpdate_form.jsp">Change password</a>
+                                   href="${pageContext.request.contextPath}/controller?command=password_edit">Change password</a>
                             </div>
                         </div>
                     </div>
