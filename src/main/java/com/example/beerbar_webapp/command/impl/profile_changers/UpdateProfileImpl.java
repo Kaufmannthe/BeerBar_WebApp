@@ -1,8 +1,13 @@
-package com.example.beerbar_webapp.controller;
+package com.example.beerbar_webapp.command.impl.profile_changers;
 
+import com.example.beerbar_webapp.command.Command;
+import com.example.beerbar_webapp.command.CommandResult;
+import com.example.beerbar_webapp.command.NavigationType;
 import com.example.beerbar_webapp.connection.JDBConnection;
 import com.example.beerbar_webapp.model.User;
 import com.example.beerbar_webapp.repository.impl.UserDAOImpl;
+import com.example.beerbar_webapp.util.PageManager;
+import com.example.beerbar_webapp.util.PageMappingConst;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,19 +15,14 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "UpdateServlet", value = "/update")
-public class UpdateServlet extends HttpServlet {
+public class UpdateProfileImpl implements Command {
     JDBConnection connection = new JDBConnection();
     UserDAOImpl userDAO = new UserDAOImpl(connection);
-
-
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public CommandResult execute(HttpServletRequest request) {
+        CommandResult commandResult = new CommandResult();
+        String page;
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
@@ -32,12 +32,9 @@ public class UpdateServlet extends HttpServlet {
         int age = Integer.parseInt(request.getParameter("age"));
         String login = request.getParameter("login");
 
-        PrintWriter printWriter = response.getWriter();
-
         User user = new User(name,age,gender,email,phone_number,address,surname,login);
 
         if (userDAO.editUser(user)){
-            try{
                 HttpSession session = request.getSession();
                 session.setAttribute("name", user.getName());
                 session.setAttribute("surname", user.getSurname());
@@ -47,12 +44,13 @@ public class UpdateServlet extends HttpServlet {
                 session.setAttribute("gender", user.getGender());
                 session.setAttribute("phone_number", user.getPhoneNumber());
                 session.setAttribute("address", user.getAddress());
-                response.sendRedirect(request.getContextPath() + "/profile/success.jsp");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+
+                page = request.getContextPath() + PageManager.getPageURL(PageMappingConst.PAGE_SUCCESS_UPDATE.getKey());
+                commandResult.setPage(page);
+                commandResult.setType(NavigationType.REDIRECT);
         }else {
-            response.sendRedirect(request.getContextPath() + "/profile/error.jsp");
+            /*response.sendRedirect(request.getContextPath() + "/profile/error.jsp");*/
         }
+        return commandResult;
     }
 }

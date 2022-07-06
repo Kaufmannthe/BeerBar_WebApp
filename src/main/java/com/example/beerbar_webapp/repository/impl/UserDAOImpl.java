@@ -1,5 +1,6 @@
 package com.example.beerbar_webapp.repository.impl;
 
+import com.example.beerbar_webapp.connection.ConnectionPool;
 import com.example.beerbar_webapp.connection.JDBConnection;
 import com.example.beerbar_webapp.model.User;
 import com.example.beerbar_webapp.repository.UserDAO;
@@ -29,9 +30,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> findAll() {
+    public List<User> findAll() throws ClassNotFoundException {
         List<User> personList = new ArrayList<>();
-        try (Connection connection = connector.getConnection();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
              Statement statement = connection.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(FIND_ALL_USERS);
@@ -47,6 +48,10 @@ public class UserDAOImpl implements UserDAO {
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }finally {
+            ConnectionPool.getInstance().releaseConnection(connector.getConnection());
         }
         return personList;
     }

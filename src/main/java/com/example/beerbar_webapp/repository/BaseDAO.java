@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface BaseDAO <T> {
 
-    List<T> findAll();
+    List<T> findAll() throws ClassNotFoundException;
     Optional<T> findByID(int id);
     boolean create (T entity);
     boolean update (T entity);

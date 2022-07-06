@@ -162,8 +162,9 @@
                 </ul>
                 <div class="tab-content">
                     <div class="innter-form">
-                        <form action="${pageContext.request.contextPath}/registration" class="sa-innate-form"
+                        <form action="controller" class="sa-innate-form"
                               method="post">
+                            <input type="hidden" name="command" value="registration">
                             <label>Name</label>
                             <input type="text" name="name" id="name">
                             <label>Surname</label>

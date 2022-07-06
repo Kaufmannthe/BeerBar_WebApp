@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Kaufmannthe
@@ -6,16 +7,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Craft Beer Club</title>
     <style>
+        #mainNav:hover{
+            cursor: pointer;
+        }
     </style>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="landingPage_assets/img/logo.png"/>
     <!-- Bootstrap Icons-->
@@ -31,34 +32,34 @@
 </head>
 <body id="page-top">
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand">Craft Beer Club</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="">Social(!)</a></li>
-                <li class="nav-item"><a class="nav-link" href="shopMenu.jsp">Shop</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Feed(!)</a></li>
-                <c:if test="${login == null}">
-                    <li class="nav-item"><a class="nav-link" href="index.jsp">Login</a>
-                    </li>
-                </c:if>
-                <c:if test="${login != null}">
-                    <li class="nav-item"><a class="nav-link" href="profile/profile.jsp">Profile</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/SessionInvalidate">Logout</a>
-                    </li>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand">Craft Beer Club</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="">Social(!)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shopMenu.jsp">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">News(!)</a></li>
+                    <c:if test="${login == null}">
+                        <li class="nav-item"><a class="nav-link" href="index.jsp">Login</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${login != null}">
+                        <li class="nav-item"><a class="nav-link" href="profile/profile.jsp">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="controller?command=logout">Logout</a>
+                        </li>
+                    </c:if>
+                </ul>
+            </div>
 
-                </c:if>
-
-
-            </ul>
         </div>
-    </div>
-</nav>
+    </nav>
+</form>
 <!-- Masthead-->
 <header class="masthead">
     <div class="container px-4 px-lg-5 h-100">
@@ -93,7 +94,7 @@
     <div class="container-fluid p-0">
         <div class="row g-0">
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/1.jpg" title="Project Name">
+                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/1.jpg" title="Craft Beer">
                     <img class="img-fluid" src="landingPage_assets/img/portfolio/thumbnails/1.jpg" alt="..."/>
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">Category</div>
@@ -102,7 +103,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/2.jpg" title="Project Name">
+                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/2.jpg" title="Wine">
                     <img class="img-fluid" src="landingPage_assets/img/portfolio/thumbnails/2.jpg" alt="..."/>
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">Category</div>
@@ -111,7 +112,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/3.jpg" title="Project Name">
+                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/3.jpg" title="Vodka">
                     <img class="img-fluid" src="landingPage_assets/img/portfolio/thumbnails/3.jpg" alt="..."/>
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">Category</div>
@@ -120,7 +121,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/4.jpg" title="Project Name">
+                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/4.jpg" title="Whiskey">
                     <img class="img-fluid" src="landingPage_assets/img/portfolio/thumbnails/4.jpg" alt="..."/>
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">Category</div>
@@ -129,7 +130,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/5.jpg" title="Project Name">
+                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/5.jpg" title="Cognac">
                     <img class="img-fluid" src="landingPage_assets/img/portfolio/thumbnails/5.jpg" alt="..."/>
                     <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">Category</div>
@@ -138,7 +139,7 @@
                 </a>
             </div>
             <div class="col-lg-4 col-sm-6">
-                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/6.jpg" title="Project Name">
+                <a class="portfolio-box" href="landingPage_assets/img/portfolio/fullsize/6.jpg" title="Snacks">
                     <img class="img-fluid" src="landingPage_assets/img/portfolio/thumbnails/6.jpg" alt="..."/>
                     <div class="portfolio-box-caption p-3">
                         <div class="project-category text-white-50">Category</div>

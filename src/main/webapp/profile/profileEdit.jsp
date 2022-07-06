@@ -47,7 +47,7 @@
     <div class="main-body">
         <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/landingPage.jsp">Craft Beer Club</a></li>
+                <li class="breadcrumb-item"><a>Craft Beer Club </a></li>
                 <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/profile/profile.jsp">User Profile</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Profile Edit</li>
             </ol>
@@ -134,7 +134,8 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <form action="${pageContext.request.contextPath}/update" method="post">
+                <form action="${pageContext.request.contextPath}/controller" method="post">
+                    <input type="hidden" name="command" value="update_profile">
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-3">

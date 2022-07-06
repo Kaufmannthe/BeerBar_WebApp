@@ -161,8 +161,9 @@
                 <div class="tab-content">
                     <div id="sectionA" class="tab-pane fade in active">
                         <div class="innter-form">
-                            <form action="${pageContext.request.contextPath}/profile" class="sa-innate-form"
+                            <form action="controller" class="sa-innate-form"
                                   method=post>
+                                <input type="hidden" name="command" value="login">
                                 <label>Email Address/Login</label>
                                 <input type="text" name="login">
 
@@ -172,13 +173,16 @@
                                 <button type="submit">Sign In</button>
                             </form>
 
-                            <a href="${pageContext.request.contextPath}/errors/404page.jsp">Forgot Password?</a>
+
+                            <a href="${pageContext.request.contextPath}/errors/404page.jsp">Forgot Password?
+
+                            </a>
                         </div>
                         <div class="social-login">
                             <p>- - - - - - - - - - - - - Sign In With - - - - - - - - - - - - - </p>
                             <ul>
-                                <li><a href="landingPage.jsp"><i class="fa fa-facebook"></i> Continue/Facebook</a></li>
-                                <li><a href=""><i class="fa fa-google-plus"></i> Google+</a></li>
+                                <li><a href=""><i class="fa fa-facebook"></i>Facebook</a></li>
+                                <li><a href=""><i class="fa fa-google-plus"></i>Google+</a></li>
                                 <li><a href=""><i class="fa fa-twitter"></i> Twitter</a></li>
                             </ul>
 

@@ -135,7 +135,8 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <form action="${pageContext.request.contextPath}/profile/passwordUpdate.jsp" method="get">
+                <form action= controller method="post">
+                    <input type="hidden" name="command" value="update_profile">
                     <div class="card">
                         <div class="card-body">
                             <div class="row mb-3">
